@@ -19,6 +19,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 
 cpus = [x.name for x in device_lib.list_local_devices() if x.device_type == 'CPU']
 
+
 class LightGCN(object):
     def __init__(self, data_config, pretrain_data):
         # argument settings
