@@ -10,6 +10,7 @@ import random as rd
 import scipy.sparse as sp
 from time import time
 
+
 class Data(object):
     def __init__(self, path, batch_size):
         self.path = path
@@ -62,15 +63,16 @@ class Data(object):
                         self.R[uid, i] = 1.
                         
                     self.train_items[uid] = train_items
-                    
+
                 for l in f_test.readlines():
-                    if len(l) == 0: break
+                    if len(l) == 0:
+                        break
                     l = l.strip('\n')
                     try:
                         items = [int(i) for i in l.split(' ')]
                     except Exception:
                         continue
-                    
+
                     uid, test_items = items[0], items[1:]
                     self.test_set[uid] = test_items
 
@@ -102,8 +104,8 @@ class Data(object):
             print('generate pre adjacency matrix.')
             pre_adj_mat = norm_adj.tocsr()
             sp.save_npz(self.path + '/s_pre_adj_mat.npz', norm_adj)
-            
-        return adj_mat, norm_adj_mat, mean_adj_mat,pre_adj_mat
+
+        return adj_mat, norm_adj_mat, mean_adj_mat, pre_adj_mat
 
     def create_adj_mat(self):
         t1 = time()

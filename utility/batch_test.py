@@ -56,7 +56,7 @@ def test(sess, model, users_to_test, drop_flag=False, train_set_flag=0):
         if train_set_flag == 0:
             for user in user_batch:
                 test_items.append(data_generator.test_set[user])# (B, #test_items)
-                
+
             # set the ranking scores of training items to -inf,
             # then the training items will be sorted at the end of the ranking list.    
             for idx, user in enumerate(user_batch):

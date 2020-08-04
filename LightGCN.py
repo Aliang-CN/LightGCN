@@ -144,7 +144,7 @@ class LightGCN(object):
         Inference for the testing phase.
         """
         self.batch_ratings = tf.matmul(self.u_g_embeddings, self.pos_i_g_embeddings,
-                                       transpose_a=False, transpose_b=True)  # 最后生成评分
+                                       transpose_a=False, transpose_b=True)               # 两个向量相乘计算出最后结果
 
         """
         *********************************************************
